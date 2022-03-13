@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./src/game_core.js"></script>
+        <script src="./src/main.js"></script>
+
+        <style>
+            .messagebox {
+                color: red;
+            }
+            
+            .optionbox {
+                width: 320px;
+                margin: 50px;
+                padding: 10px;
+            }
+
+            .optionbox button {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+            }
+
+            .viergewinnt td {
+                width: 50px;
+                height: 50px;
+                border: 1px solid black;
+            }
+
+            .viergewinnt .black {
+                border: 1px solid transparent;
+                background-image: url("./img/jakob.jpeg");
+                background-size: contain;
+                background-repeat: round;
+            }
+
+            .viergewinnt .white {
+                border: 1px solid transparent;
+                background-image: url("./img/koch.jpeg");
+                background-size: contain;
+                background-repeat: round;
+            }
+
+            .viergewinnt button {
+                width: 50px;
+                height: 50px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Monte-Carlo Vier gewinnt</h1>
+            <label class="messagebox" id="messagebox">Hallo! Wähle die größe des Feldes und die Stärke deines Gegners!</label>
+
+            <div class="optionbox">
+                <div>
+                    <input oninput="updateSizeRange()" id="sizeInput" type="range" min="4" max="15" step="1.0" value="4"/>
+                </div>
+                <div>
+                    <label id="sizeLabel">Größe (4x4)</label>
+                </div>
+                <div>
+                    <input oninput="updateStrengthRange()" id="strengthInput" type="range" min="1000" max="50000" step="1000" value="1000"/>
+                </div>
+                <div>
+                    <label id="strengthLabel">Stärke (1000)</label>
+                </div>
+
+                <button onclick="startGame()">Neues Spiel</button>
+            </div>
+            
+            <table class="viergewinnt" id="gameboard"></table>
+        </center>
+    </body>
+</html>
